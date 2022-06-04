@@ -199,7 +199,7 @@ a {
   flex-direction: column;
 }
 
-.rightSide .addCommentContainer {
+.rightSide .addWorkerContainer {
   flex: 20%;
   width: 100%;
   display: grid;
@@ -207,7 +207,7 @@ a {
   margin-top: 25px;
 }
 
-.addCommentContainer input,
+.addWorkerContainer input,
 button {
   width: 200px;
   height: 50px;
@@ -215,16 +215,16 @@ button {
   border: none;
 }
 
-.addCommentContainer button {
+.addWorkerContainer button {
   background-color: dodgerblue;
   color: white;
 }
 
-.addCommentContainer input {
+.addWorkerContainer input {
   border: 2px solid dodgerblue;
 }
 
-.rightSide .listOfComments {
+.rightSide .listOfWorkers {
   flex: 80%;
   width: 100%;
   display: flex;
@@ -232,7 +232,7 @@ button {
   align-items: center;
 }
 
-.listOfComments .comment {
+.listOfWorkers .worker {
   width: 70%;
   height: auto;
   padding: 30px;
