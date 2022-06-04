@@ -14,13 +14,15 @@ module.exports = (sequelize, DataTypes) => {
         },
         acomplished: {
             type: DataTypes.INTEGER,
-            default: 0
+            defaultValue: 0
         },
         tasks: {
             type: DataTypes.INTEGER,
-            default: 1
         }
-    })
+    });
 
+    Tasks.associate = (models) => {
+        Tasks.hasMany(models.Workers)
+    }
     return Tasks
 }

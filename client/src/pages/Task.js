@@ -12,7 +12,25 @@ const Task = () => {
     },[])
     console.log();
   return (
-    <div>{taskObj.title}</div>
+    <div className='taskPage'>
+      <div className='leftSide'>
+        <div className='task' id="individual">
+
+            <div className='title'>
+              {taskObj.title}
+            </div>
+            <div className='body'>
+              {taskObj.taskText}
+            </div>
+            <div className='footer'>
+              {taskObj.username}
+            </div>
+          </div>
+        </div>
+      <div className='rightSide'>
+        who is doing this task :
+      </div>
+    </div>
   )
 }
 

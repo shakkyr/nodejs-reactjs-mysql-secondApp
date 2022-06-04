@@ -1,15 +1,18 @@
 import React from 'react'
 import {Formik, Form, Field, ErrorMessage, } from 'formik'
+import { useHistory } from "react-router-dom";
 import * as Yup from 'yup'
 import axios from 'axios'
 
 const CreateTask = () => {
-
+  
   const initialValues = {
     title: '',
     taskText: '',
     username: '',
   }
+
+  let history = useHistory();
 
   const validationSchema = Yup.object().shape({
     title: Yup.string().required(),
@@ -19,7 +22,8 @@ const CreateTask = () => {
 
   const submitHandler = (data) => {
     axios.post('http://localhost:3001/tasks',data).then(res=> {
-      console.log('it Worked');
+
+      history.push(`/`)
     })
   }
 

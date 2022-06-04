@@ -10,8 +10,12 @@ const db = require('./models')
 
 
 const taskRouter = require('./routes/Tasks.Routes')
-
 app.use('/tasks', taskRouter)
+
+const workersRouter = require('./routes/Workers.Route')
+app.use('/workers', workersRouter)
+
+
 
 db.sequelize.sync().then(()=> {
     app.listen(3001, () => {
