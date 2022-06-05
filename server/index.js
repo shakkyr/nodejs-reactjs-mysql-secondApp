@@ -15,6 +15,9 @@ app.use('/tasks', taskRouter)
 const workersRouter = require('./routes/Workers.Route')
 app.use('/workers', workersRouter)
 
+const usersRouter = require('./routes/Users.Routes')
+app.use('/auth', usersRouter)
+
 
 
 db.sequelize.sync().then(()=> {

@@ -4,10 +4,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        role: {
-            type: DataTypes.INTEGER,
-            defaultValue: 0
-        }
+        
     })
     return Workers
 }

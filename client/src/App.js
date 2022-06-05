@@ -12,6 +12,8 @@ function App() {
         <div className="navbar">
           <Link to='/'> Home</Link>
           <Link to='/createtask'> Create a Task</Link>
+          <Link to='/signup'> Login</Link>
+          <Link to='/login'> Register</Link>
         </div>
 
         <Switch>
