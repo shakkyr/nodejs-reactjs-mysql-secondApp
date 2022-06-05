@@ -25,6 +25,7 @@ const Task = () => {
       axios.post('http://localhost:3001/workers', {name: newWorker, TaskId:id}).then(res=> {
         const workerToAdd = {name: newWorker}
         setWorkers([...workers, workerToAdd])
+        setNewWorker("")
       })
     }
   
@@ -47,7 +48,7 @@ const Task = () => {
       <div className='rightSide'>
         who is doing this task :
         <div className='addWorkerContainer'>
-          <input type="text" placeholder="Worker Name" autoComplete='off'  onchange={(e)=> {setNewWorker(e.target.value)}}/>
+          <input type="text" placeholder="Worker Name" autoComplete='off' value={newWorker} onChange={(e)=> {setNewWorker(e.target.value)}}/>
           <button onClick={addWorker}>Add Worker</button>
         </div>
         <div className='listOfWorkers'>
