@@ -24,8 +24,9 @@ const Login = () => {
     }
 return (
     <div className="loginContainer">
-        <input type="text" onChange={(e)=> setUsername(e.target.value)}/>
-        <input type="password" onChange={(e)=> setPassword(e.target.value)}/>
+        Login
+        <input type="text" placeholder="name" onChange={(e)=> setUsername(e.target.value)}/>
+        <input type="password" placeholder="password" onChange={(e)=> setPassword(e.target.value)}/>
 
         <button onClick={login} >Login</button>
     </div>

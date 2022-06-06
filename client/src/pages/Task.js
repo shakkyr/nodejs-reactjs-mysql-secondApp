@@ -69,7 +69,6 @@ const Task = () => {
         systemUser?.role===1 ?
 
       <div className='rightSide'>
-        who is doing this task :
         <div className='addWorkerContainer'>
           {/* <input type="text" placeholder="Worker Name" autoComplete='off' value={newWorker} onChange={(e)=> {setNewWorker(e.target.value)}}/> */}
           <select   onChange={(e)=> {setNewWorker(e.target.value)}} defaultValue="DEFAULT">

@@ -16,7 +16,7 @@ const Home = () => {
 },[])
 
 return (
-    <div>
+    <div className='home'>
         {taskList.map((ele, key) => {
         return (
             <div className='task' key={ele.id} onClick={()=> {history.push(`/task/${ele.id}`)}}>
