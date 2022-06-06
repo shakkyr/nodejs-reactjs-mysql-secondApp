@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const {Users} = require('../models');
 
 
-router.post('/signup', async (req, res) => {
+router.post('/register', async (req, res) => {
     const {username, password} = req.body
     bcrypt.hash(password, 10).then(hash=> {
         Users.create({
