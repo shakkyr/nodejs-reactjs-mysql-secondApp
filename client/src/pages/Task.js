@@ -24,7 +24,7 @@ const Task = () => {
     const addWorker = () => {
       axios.post('http://localhost:3001/workers', {name: newWorker, TaskId:id}, {
         headers: {
-          accessToken: sessionStorage.getItem("accessToken"),
+          accessToken: localStorage.getItem("accessToken"),
         },
       }).then(res=> {
         if(res.data.error) {
