@@ -22,10 +22,19 @@ const Task = () => {
     },[])
     
     const addWorker = () => {
-      axios.post('http://localhost:3001/workers', {name: newWorker, TaskId:id}).then(res=> {
-        const workerToAdd = {name: newWorker}
-        setWorkers([...workers, workerToAdd])
-        setNewWorker("")
+      axios.post('http://localhost:3001/workers', {name: newWorker, TaskId:id}, {
+        headers: {
+          accessToken: sessionStorage.getItem("accessToken"),
+        },
+      }).then(res=> {
+        if(res.data.error) {
+          alert('You are not Authorized to do this')
+        } else {
+
+          const workerToAdd = {name: newWorker}
+          setWorkers([...workers, workerToAdd])
+          setNewWorker("")
+        }
       })
     }
   

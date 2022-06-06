@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const {Workers} = require('../models');
+const {validateToken} = require('../middlewares/AuthMiddleware')
+
 
 router.get('/:taskId', async (req, res) => {
     const taskId = req.params.taskId;
@@ -8,7 +10,7 @@ router.get('/:taskId', async (req, res) => {
     res.json(workers);
 })
 
-router.post('/', async (req, res) => {
+router.post('/',validateToken , async (req, res) => {
     const worker = req.body
     await Workers.create(worker);
     res.json(worker);
