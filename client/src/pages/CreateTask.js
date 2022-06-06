@@ -34,13 +34,13 @@ const CreateTask = () => {
           <Form className='formContainer'>
             <label>Title: </label>
             <ErrorMessage name="title" component='span'/>
-            <Field autocomplete="off" id="inputCreateTask" name="title" placeholder="(EX. do...)" />
+            <Field autoComplete="off" id="inputCreateTask" name="title" placeholder="(EX. do...)" />
             <label>Task: </label>
             <ErrorMessage name="taskText" component='span'/>
-            <Field autocomplete="off" id="inputCreateTask" name="taskText" placeholder="task details" />
+            <Field autoComplete="off" id="inputCreateTask" name="taskText" placeholder="task details" />
             <label>Username: </label>
             <ErrorMessage name="username" component='span'/>
-            <Field autocomplete="off" id="inputCreateTask" name="username"  />
+            <Field autoComplete="off" id="inputCreateTask" name="username"  />
 
             <button type='submit'>Create Task</button>
           </Form>

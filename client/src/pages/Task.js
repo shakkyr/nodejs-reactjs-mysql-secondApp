@@ -8,7 +8,10 @@ const Task = () => {
     let {id} = useParams();
     const [taskObj, setTaskObj] = useState({})
     const [workers, setWorkers] = useState([])
+    const [users, setUsers] = useState([])
     const [newWorker, setNewWorker] = useState('')
+
+    const systemUser = JSON.parse(localStorage.getItem("accessToken"))
 
 
     useEffect(() => {
@@ -19,12 +22,18 @@ const Task = () => {
         axios.get(`http://localhost:3001/workers/${id}`).then(res=> {
           setWorkers(res.data);
     })
+
+        axios.get('http://localhost:3001/auth/users').then(res=> {
+          setUsers(res.data)
+          
+        })
     },[])
+
     
     const addWorker = () => {
       axios.post('http://localhost:3001/workers', {name: newWorker, TaskId:id}, {
         headers: {
-          accessToken: localStorage.getItem("accessToken"),
+          accessToken: JSON.parse(localStorage.getItem("accessToken")).token,
         },
       }).then(res=> {
         if(res.data.error) {
@@ -37,6 +46,8 @@ const Task = () => {
         }
       })
     }
+
+
   
   return (
     <div className='taskPage'>
@@ -54,11 +65,21 @@ const Task = () => {
             </div>
           </div>
         </div>
+      {
+        systemUser?.role===1 ?
+
       <div className='rightSide'>
         who is doing this task :
         <div className='addWorkerContainer'>
-          <input type="text" placeholder="Worker Name" autoComplete='off' value={newWorker} onChange={(e)=> {setNewWorker(e.target.value)}}/>
-          <button onClick={addWorker}>Add Worker</button>
+          {/* <input type="text" placeholder="Worker Name" autoComplete='off' value={newWorker} onChange={(e)=> {setNewWorker(e.target.value)}}/> */}
+          <select   onChange={(e)=> {setNewWorker(e.target.value)}} defaultValue="DEFAULT">
+            <option  defaultValue="Select User" >Select User</option>
+            {users && users.map((user) => (
+              <option key={user.id} value={user.username}>{user.username}</option>
+            ))
+            }
+          </select>
+          <button onClick={addWorker}>Add Emploee</button>
         </div>
         <div className='listOfWorkers'>
           {workers.map(ele => {
@@ -68,6 +89,9 @@ const Task = () => {
           })}
         </div>
       </div>
+        :
+        ''
+      }
     </div>
   )
 }

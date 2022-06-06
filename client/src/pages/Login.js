@@ -16,8 +16,8 @@ const Login = () => {
             if (res.data.error) {
                 alert(res.data.error)
             } else {
-                localStorage.setItem("accessToken", res.data);
-                setAuthState(true)
+                localStorage.setItem("accessToken", JSON.stringify(res.data));
+                setAuthState({username: res.data.username, id: res.data.id, role:res.data.role, status: true})
                 history.push("/");
             }
         })
